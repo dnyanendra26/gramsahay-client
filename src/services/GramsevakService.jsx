@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://localhost:7373/gramsevaks/";
+let baseUrl = "http://3.110.188.118:8080/gramsevaks/";
 class GramsevakService {
   getAllGramsevaks() {
     return axios.get(baseUrl + "gramsevaks");
