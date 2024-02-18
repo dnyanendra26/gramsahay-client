@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://localhost:7373/complaints/";
+let baseUrl = "http://3.110.188.118:8080/complaints/";
 class ComplaintService {
   getAllComplaints() {
     return axios.get(baseUrl + "complaints");
