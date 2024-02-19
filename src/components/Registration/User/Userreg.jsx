@@ -149,7 +149,7 @@ const UserRegistrationForm = () => {
               className="col-md-12"
               title="Please enter only numbers"
               min={10}
-              max={10000000000}
+              max={10}
               required
             />
           </label>

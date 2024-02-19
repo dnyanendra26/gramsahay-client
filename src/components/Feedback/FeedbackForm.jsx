@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./FeedbackForm.css";
 import FeedbackService from "../../services/FeedbackService";
 import { useNavigate } from "react-router-dom";
+
 const FeedbackForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ const FeedbackForm = () => {
     lastName: "",
     emailId: "",
     subject: "",
-    yourMessage: ""
+    yourMessage: "",
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -19,12 +20,13 @@ const FeedbackForm = () => {
     e.preventDefault();
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(formData)
-  }
-  const handelSubmit = (e) => {
+    console.log(formData);
+  };
+
+  const handelSubmit = async (e) => {
     e.preventDefault();
     try {
-      FeedbackService.addFeedback(formData)
+      await FeedbackService.addFeedback(formData);
       setSuccess(true);
       setError("");
       setFormData({
@@ -33,15 +35,16 @@ const FeedbackForm = () => {
         lastName: "",
         emailId: "",
         subject: "",
-        yourMessage: ""
+        yourMessage: "",
       });
-      navigate("/")
+      navigate("/");
     } catch (error) {
       setError("Failed to register user. Please try again.");
       console.error("Error registering user:", error);
     }
     console.log(formData);
-  }
+  };
+
   return (
     <>
       <section className="section section-contact">
@@ -63,7 +66,7 @@ const FeedbackForm = () => {
                 </p>
               )}
             </div>
-            <form action="#" on onSubmit={handelSubmit}>
+            <form action="#" onSubmit={handelSubmit}>
               <ul className="form-style-1">
                 <li>
                   <label>
@@ -77,6 +80,7 @@ const FeedbackForm = () => {
                     onChange={handelChange}
                     className="field-divided"
                     placeholder="First"
+                    required
                   />{" "}
                   <input
                     type="text"
@@ -86,6 +90,7 @@ const FeedbackForm = () => {
                     onChange={handelChange}
                     className="field-divided"
                     placeholder="Last"
+                    required
                   />
                 </li>
                 <li>
@@ -93,12 +98,15 @@ const FeedbackForm = () => {
                     Email <span className="required">*</span>
                   </label>
                   <input
-                    type="emailId"
+                    type="email"
                     name="emailId"
                     id="emailId"
                     value={formData.emailId}
                     onChange={handelChange}
                     className="field-long"
+                    pattern="[a-zA-Z0-9._%+-]+@gmail\.com"
+                    required
+                    title="Enter a valid Gmail address"
                   />
                 </li>
                 <li>
@@ -122,6 +130,7 @@ const FeedbackForm = () => {
                     value={formData.yourMessage}
                     onChange={handelChange}
                     className="field-long field-textarea"
+                    required
                   ></textarea>
                 </li>
                 <li>
@@ -140,4 +149,5 @@ const FeedbackForm = () => {
     </>
   );
 };
+
 export default FeedbackForm;

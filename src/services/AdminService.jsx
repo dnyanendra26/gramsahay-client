@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://gramshaybackend-production.up.railway.app/admins/";
+let baseUrl = "http://localhost:7373/admins/";
 class AdminService {
   getAllAdmins() {
     return axios.get(baseUrl + "admins");
