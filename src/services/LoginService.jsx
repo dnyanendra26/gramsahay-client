@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://3.110.188.118:8080/login/";
+let baseUrl = "https://gramsahay-server-production.up.railway.app/login/";
 class LoginService {
   adminLogin(admin) {
     return axios.post(baseUrl + "admin", admin);
