@@ -29,13 +29,6 @@ const UserLogin = () => {
       console.error("Error Logging in:", error);
     }
 
-    // if (formdata.username === "Omkarware003" && formdata.password === "omkar") {
-    //   localStorage.setItem("username", formdata.username);
-    //   navigate(`/users/dashboard/${localStorage.getItem("username")}`);
-    //   setErrorMessage("");
-    // } else {
-    //   setErrorMessage("Invalid Username or password");
-    // }
   };
 
   const handleChange = (e) => {
@@ -47,6 +40,9 @@ const UserLogin = () => {
     <>
       <div className="user-login-container">
         <h2>User Login</h2>
+        {errorMessage && (
+          <p className="admin-login-error-message">{errorMessage}</p>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Username:</label>

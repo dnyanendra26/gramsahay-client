@@ -17,8 +17,7 @@ const EditComplaint = () => {
     district: "",
     taluka: "",
     village: "",
-    status: "",
-    remarks: ""
+    status: ""
   });
 
   const navigate = useNavigate();
@@ -43,8 +42,7 @@ const EditComplaint = () => {
           district: "",
           taluka: "",
           village: "",
-          status: "",
-          remarks: ""
+          status: ""
         });
         navigate(`/gramsevaks/dashboard/${params.username}`);
       })
@@ -205,7 +203,7 @@ const EditComplaint = () => {
               }}
             />
           </div>
-          <div className="form-group label" id="input-group">
+          {/* <div className="form-group label" id="input-group">
             <label htmlFor="dob">Status:</label>
             <input
               type="text"
@@ -217,6 +215,22 @@ const EditComplaint = () => {
                 setformdetails({ ...formdetails, status: event.target.value });
               }}
             />
+          </div> */}
+          <div className="form-group label" id="input-group">
+            <label htmlFor="status">Status:</label>
+            <select
+              className="form-control col-md-12"
+              id="status"
+              name="status"
+              value={formdetails.status}
+              onChange={(event) => {
+                setformdetails({ ...formdetails, status: event.target.value });
+              }}
+            >
+              <option value="new">New</option>
+              <option value="inprocess">In-Process</option>
+              <option value="completed">Completed</option>
+            </select>
           </div>
           <button
             type="button"

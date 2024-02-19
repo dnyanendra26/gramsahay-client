@@ -34,7 +34,6 @@ const ComplaintRegistration = () => {
       ComplaintService.addComplaint(formData);
       setSuccess(true);
       setError("");
-      navigate(`/users/dashboard/${params.username}`);
     } catch (error) {
       setError("Failed to register user. Please try again.");
       console.error("Error registering user:", error);

@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://3.110.188.118:8080/gramsevaks/";
+let baseUrl = "http://gramshaybackend-production.up.railway.app/gramsevaks/";
 class GramsevakService {
   getAllGramsevaks() {
     return axios.get(baseUrl + "gramsevaks");
@@ -11,7 +11,7 @@ class GramsevakService {
     return axios.get(baseUrl + "gramsevak/" + username);
   }
   addGramsevak(gramsevak) {
-    return axios.post(baseUrl + "gramsevaks/" + gramsevak.gsid, gramsevak);
+    return axios.post(baseUrl + "gramsevaks/" , gramsevak);
   }
   updateGramsevak(gramsevak) {
     return axios.put(baseUrl + "gramsevaks/" + gramsevak.gsid, gramsevak);

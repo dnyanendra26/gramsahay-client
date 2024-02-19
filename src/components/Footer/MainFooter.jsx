@@ -98,7 +98,7 @@ const MainFooter = () => {
 
           <div className="f-address center">
             <h3>Contact Us</h3>
-            <div id="contact">
+            {/* <div id="contact">
               <p>
                 <span>
                   <ion-icon name="location-outline"></ion-icon>
@@ -112,7 +112,7 @@ const MainFooter = () => {
                   Pune, India
                 </Link>
               </p>
-            </div>
+            </div> */}
             <div id="contact">
               <p>
                 <span>
@@ -139,7 +139,7 @@ const MainFooter = () => {
                   <ion-icon name="logo-linkedin"></ion-icon>
                 </span>
                 <Link
-                  to="https://www.linkedin.com/in/omkar-ware-003abc003/"
+                  to="https://www.linkedin.com/in/gramsahay/"
                   target="_blank"
                   id="mr-lf"
                 >
