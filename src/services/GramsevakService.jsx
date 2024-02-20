@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://localhost:7373/gramsevaks/";
+let baseUrl = "http://gramsahay-server-production-1559.up.railway.app/gramsevaks/";
 class GramsevakService {
   getAllGramsevaks() {
     return axios.get(baseUrl + "gramsevaks");
