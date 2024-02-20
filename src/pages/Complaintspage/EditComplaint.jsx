@@ -19,12 +19,16 @@ const EditComplaint = () => {
     village: "",
     status: ""
   });
-
+  const [selectedStatus, setSelectedStatus] = useState("");
   const navigate = useNavigate();
+  // useEffect(() => {
+  //   setformdetails({ ...location.state.data });
+  //   console.log("formdetails: "+formdetails);
+  // }, []);
   useEffect(() => {
     setformdetails({ ...location.state.data });
-    console.log("formdetails: "+formdetails);
-  }, []);
+    setSelectedStatus(location.state.data.status);
+  }, [location.state.data]);
 
   const updategs = () => {
     console.log("Form Details : ", formdetails);
@@ -216,7 +220,7 @@ const EditComplaint = () => {
               }}
             />
           </div> */}
-          <div className="form-group label" id="input-group">
+          {/* <div className="form-group label" id="input-group">
             <label htmlFor="status">Status:</label>
             <select
               className="form-control col-md-12"
@@ -231,7 +235,25 @@ const EditComplaint = () => {
               <option value="inprocess">In-Process</option>
               <option value="completed">Completed</option>
             </select>
-          </div>
+          </div> */}
+          <div className="form-group label" id="input-group">
+          <label htmlFor="status">Status:</label>
+          <select
+            className="form-control col-md-12"
+            id="status"
+            name="status"
+            defaultValue={formdetails.status}
+            onChange={(event) => {
+              setSelectedStatus(event.target.value);
+              setformdetails({ ...formdetails, status: event.target.value });
+            }}
+          >
+            <option value="select">Select</option>
+            <option value="new">New</option>
+            <option value="inprocess">In-Process</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
           <button
             type="button"
             className="btn btn-primary rounded-pill"

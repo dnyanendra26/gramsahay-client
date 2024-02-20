@@ -21,7 +21,15 @@ const AdminRegistrationForm = () => {
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    // Handle special case for phone number to allow a maximum of 10 digits
+    if (name === "phoneNumber") {
+      // Allow only numeric digits
+      const newValue = value.replace(/[^0-9]/g, "");
+      setFormData({ ...formData, [name]: newValue.slice(0, 10) });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -149,7 +157,8 @@ const AdminRegistrationForm = () => {
               placeholder="Enter Your Number"
               className="col-md-12"
               title="Please enter only numbers"
-              max={10000000000}
+              min={0} // Setting min to 0 to allow positive numbers
+              max={9999999999} // Setting max to 9999999999 (10 digits)
               required
             />
           </label>
