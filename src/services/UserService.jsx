@@ -1,5 +1,5 @@
 import axios from 'axios';
-let baseUrl = "https://gramsahay-server-production-1559.up.railway.app/users/";
+let baseUrl = "https://gramsahay-server-production-88a9.up.railway.app/users/";
 class UserService { 
     getAllUsers(){
        return axios.get(baseUrl+"users")
